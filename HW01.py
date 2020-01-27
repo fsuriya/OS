@@ -40,11 +40,11 @@ def WriteHeaderSheet(command, p1, p2, p3, tatalProcess, case):
     sheet1.write(7, 0, "total")
 
     for x in range(case):
-        sheet1.write(3, x+1, "case"+str(case+1))
-        sheet1.write(4, x+1, p1[case])
-        sheet1.write(5, x+1, p2[case])
-        sheet1.write(6, x+1, p3[case])
-        sheet1.write(7, x+1, tatalProcess[case])
+        sheet1.write(3, x+1, "case "+str(x+1))
+        sheet1.write(4, x+1, p1[x])
+        sheet1.write(5, x+1, p2[x])
+        sheet1.write(6, x+1, p3[x])
+        sheet1.write(7, x+1, tatalProcess[x])
     
     #percent of process
     sheet1.write(9, 0, "percent of process")
@@ -53,10 +53,10 @@ def WriteHeaderSheet(command, p1, p2, p3, tatalProcess, case):
     sheet1.write(12, 0, "process 3")
 
     for x in range(case):
-        sheet1.write(9, x+1, "case"+str(case+1))
-        sheet1.write(10, x+1, (p1[case]/tatalProcess[case])*100)
-        sheet1.write(11, x+1, (p2[case]/tatalProcess[case])*100)
-        sheet1.write(12, x+1, (p3[case]/tatalProcess[case])*100)
+        sheet1.write(9, x+1, "case "+str(x+1))
+        sheet1.write(10, x+1, (p1[x]/tatalProcess[x])*100)
+        sheet1.write(11, x+1, (p2[x]/tatalProcess[x])*100)
+        sheet1.write(12, x+1, (p3[x]/tatalProcess[x])*100)
 
 
 #################### main ################################
@@ -78,5 +78,4 @@ for x in range(case):
 
 #GenProcessList(command, numOfProcess, p1, p2, p3)
 WriteHeaderSheet(command, p1, p2, p3, tatalProcess, case)
-
 wb.save('xlwt example.xls') 
