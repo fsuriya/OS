@@ -1,4 +1,4 @@
-point = 5
-point += 1
-point = point % 4
-print(point)
+p1 = 5
+numProcess = [1,2,3,4]
+for x in range(len(numProcess)):
+    print("GG")

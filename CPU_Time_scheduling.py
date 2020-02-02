@@ -40,7 +40,7 @@ def WriteHeaderSheet(command, case):
     sheet1.write(9, 0, "percent of process")
     sheet1.write(10, 0, "2 - 8 ms")
     sheet1.write(11, 0, "20 - 30 ms")
-    sheet1.write(12, 0, "35 -40 ms")
+    sheet1.write(12, 0, "35 - 40 ms")
 
     #average waiting time
     sheet1.write(14, 0, "average waiting time")
@@ -82,19 +82,21 @@ def WriteDataSheet(case, p1, p2, p3, FCFSTime, SJFTime, RRTime, processList, sum
 
 
 def generateListData(p1, p2, p3, processList, sumTime):
-    numProcess = random.randrange(20,61)                  #20 to 60 processes
-    for x in range(numProcess):                                   #generate process = numProcess time
-        y = random.randrange(0,3)                          #random process
-        if y == 0:
-            processList.append(random.randrange(2,9))      #process time 2 to 8 ms
-            p1+=1
-        elif y == 1:
-            processList.append(random.randrange(20,31))    #process time 20 to 31 ms
-            p2+=1
-        elif y == 2:
-            processList.append(random.randrange(35,40))    #process time 20 to 31 ms
-            p3+=1
-        sumTime += processList[x]
+    numProcess = random.randrange(20,61)                   #20 to 60 processes
+    p3 = random.randrange(10,21)
+    p2 = random.randrange(20,41)
+    p3 = (numProcess*p3)//100
+    p2 = (numProcess*p2)//100
+    p1 = numProcess - (p2+p3)
+    for x in range(p1):                                #generate process = numProcess time
+        processList.append(random.randrange(2,9))      #process time 2 to 8 ms
+    for x in range(p2):
+        processList.append(random.randrange(20,31))    #process time 20 to 30 ms
+    for x in range(p3):
+        processList.append(random.randrange(35,40))    #process time 35 to 40 ms
+    for x in range(numProcess):
+        sumTime += processList[x]    
+    random.shuffle(processList)
 
     return (p1,p2,p3),processList,sumTime
 

@@ -38,6 +38,6 @@ processList = [5,4,3,2,1]
 tempprocessList = processList.copy()
 temp2processList = processList.copy()
 num = 5
-print(FCFS(FCFSTime, processList, num))
-print(SJF(FCFSTime, tempprocessList, num))
-print(RR(FCFSTime, temp2processList, num))
+print(FCFS(0,[2,5,20,28,36,39],6))
+print(SJF(0,[2,5,20,28,36,39],6))
+print(RR(0,[2,5,20,28,36,39],6))
