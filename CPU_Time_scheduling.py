@@ -31,22 +31,22 @@ def WriteHeaderSheet(command, case):
 
     #number of process
     sheet1.write(3, 0, "number of process")
-    sheet1.write(4, 0, "process 1")
-    sheet1.write(5, 0, "process 2")
-    sheet1.write(6, 0, "process 3")
+    sheet1.write(4, 0, "2 - 8 ms")
+    sheet1.write(5, 0, "20 - 30 ms")
+    sheet1.write(6, 0, "35 - 40 ms")
     sheet1.write(7, 0, "total")
     
     #percent of process
     sheet1.write(9, 0, "percent of process")
-    sheet1.write(10, 0, "process 1")
-    sheet1.write(11, 0, "process 2")
-    sheet1.write(12, 0, "process 3")
+    sheet1.write(10, 0, "2 - 8 ms")
+    sheet1.write(11, 0, "20 - 30 ms")
+    sheet1.write(12, 0, "35 -40 ms")
 
     #average waiting time
     sheet1.write(14, 0, "average waiting time")
-    sheet1.write(15, 0, "process 1")
-    sheet1.write(16, 0, "process 2")
-    sheet1.write(17, 0, "process 3")
+    sheet1.write(15, 0, "FCFS")
+    sheet1.write(16, 0, "SJF")
+    sheet1.write(17, 0, "RR")
 
     #Data list
     sheet1.write(19, 0, "Data list")
