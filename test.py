@@ -18,7 +18,7 @@ def SJF(SJFTime, tempprocessList, numProcess):
 def RR(RRTime, temp2processList, numProcess):
     temp = 0
     point = 0
-    timeQuantum = (max(temp2processList)+min(temp2processList))//2
+    timeQuantum = 4#(max(temp2processList)+min(temp2processList))//2
     while len(temp2processList) > 0:
         RRTime += temp
         point = point % (len(temp2processList))
@@ -38,6 +38,7 @@ processList = [5,4,3,2,1]
 tempprocessList = processList.copy()
 temp2processList = processList.copy()
 num = 5
-print(FCFS(0,[2,5,20,28,36,39],6))
-print(SJF(0,[2,5,20,28,36,39],6))
-print(RR(0,[2,5,20,28,36,39],6))
+
+print(FCFS(0,[2,5,5], 3))
+print(SJF(0,[2,5,5], 3))
+print(RR(0,[24,3,3], 3))

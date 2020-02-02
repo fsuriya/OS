@@ -93,7 +93,7 @@ def generateListData(p1, p2, p3, processList, sumTime):
     for x in range(p2):
         processList.append(random.randrange(20,31))    #process time 20 to 30 ms
     for x in range(p3):
-        processList.append(random.randrange(35,40))    #process time 35 to 40 ms
+        processList.append(random.randrange(35,41))    #process time 35 to 40 ms
     for x in range(numProcess):
         sumTime += processList[x]    
     random.shuffle(processList)
