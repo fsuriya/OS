@@ -118,18 +118,21 @@ def SJF(SJFTime, tempprocessList, numProcess):
     return SJFTime
 
 def RR(RRTime, temp2processList, numProcess):
-    temp = 0
+    countTime = 0
+    endProcess = [0] * numProcess
+    timeQuantum = 8
     point = 0
-    timeQuantum = (max(temp2processList)+min(temp2processList))//2
     while len(temp2processList) > 0:
-        RRTime += temp
         point = point % (len(temp2processList))
-        if temp2processList[point] >= timeQuantum:
-            temp += timeQuantum
+        RRTime += (countTime - endProcess[point])
+        if temp2processList[point] > timeQuantum:
             temp2processList[point] -= timeQuantum
-        elif temp2processList[point] < timeQuantum:
-            temp += temp2processList[point]
+            countTime += timeQuantum
+            endProcess[point] = countTime
+        elif temp2processList[point] <= timeQuantum:
+            countTime += temp2processList[point]
             temp2processList.remove(temp2processList[point])
+            endProcess.remove(endProcess[point])
             point -= 1
         point += 1
     RRTime = RRTime/numProcess
