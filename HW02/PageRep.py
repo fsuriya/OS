@@ -58,7 +58,11 @@ def RLU (dataList, frame):
 
     return pageFaults
 
-dataList = [1,2,3,4,1,2,5,1,2,3,4,5]
-dataList2 = [7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1]
-print(Optimal(dataList2, 3))
-# print(dataList.index(max(dataList)))
+# data = [0,1,2,3,4,5,6,0,1,2,3,4,5,6] #optimal
+data = [0,1,3,0,1,4,2,0,1,2,4,5,6,4,5,0,1,3,5]
+for i in range(1,9):
+    print("Frame : "+ str(i))
+    print("FIFO : "+str(FIFO(data,i)))
+    print("Optimal : "+str(Optimal(data,i)))
+    print("RLU : "+str(RLU(data,i)))
+    print()
