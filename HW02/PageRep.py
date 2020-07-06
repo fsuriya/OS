@@ -1,3 +1,5 @@
+import random
+
 def FIFO (dataList, frame):
     pageFaults = 0
     frameList = [-1] * frame
@@ -8,6 +10,7 @@ def FIFO (dataList, frame):
             pageFaults += 1
             frameList[pointFrameList] = dataList[i]
             pointFrameList += 1
+        print(str(i)+" : "+str(frameList))
 
     return pageFaults
 
@@ -29,6 +32,7 @@ def Optimal(dataList, frame):
                 if frameList.count(dataList[j]) != 0:
                     checkFar[frameList.index(dataList[j])] = 0
             frameList[checkFar.index(1)] = dataList[i]
+        print(str(i)+" : "+str(frameList))
 
     return pageFaults
 
@@ -55,14 +59,10 @@ def RLU (dataList, frame):
         else:
             countOlder[frameList.index(dataList[j])] = 0
         countOlder = UpdateOlder(countOlder, frameList)
+        print(str(j)+" : "+str(frameList))
 
     return pageFaults
 
-# data = [0,1,2,3,4,5,6,0,1,2,3,4,5,6] #optimal
-data = [0,1,3,0,1,4,2,0,1,2,4,5,6,4,5,0,1,3,5]
-for i in range(1,9):
-    print("Frame : "+ str(i))
-    print("FIFO : "+str(FIFO(data,i)))
-    print("Optimal : "+str(Optimal(data,i)))
-    print("RLU : "+str(RLU(data,i)))
-    print()
+data = [0, 1, 2, 4, 0, 1, 0, 5, 1, 1, 2, 4, 5, 0, 2, 1, 4, 0, 2, 5]
+# print(len(data))
+print(RLU(data,4))
